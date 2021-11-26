@@ -37,9 +37,15 @@ section.image {
   margin: 1rem 0 1rem 0;
 }
 
-.form .dados span {
+.icons {
   color: var(--black-smoth);
   font-size: 1.125rem;
+  transition: 0.3s;
+}
+
+.icons-strong {
+  color: var(--black-default);
+  transition: 0.3s;
 }
 
 .form .recovery-pass {
@@ -51,12 +57,18 @@ section.image {
   color: var(--black-smoth);
 }
 
-.form .line {
+.line {
   display: block;
   width: 100%;
   margin-top: -1rem;
   border-radius: 0.9375rem;
-  border-top: 0.125rem solid var(--black-smoth);
+  border-top: 0.25rem solid var(--black-smoth);
+  transition: 0.3s;
+}
+
+.line-strong {
+  border-color: var(--black-default);
+  transition: 0.3s;
 }
 
 .form input {
@@ -66,10 +78,6 @@ section.image {
   border-radius: none;
   outline: none;
   background-color: var(--back-color);
-}
-
-.login section div span {
-  font-size: 1.5rem;
 }
 
 .form button {
