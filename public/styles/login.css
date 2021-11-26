@@ -1,0 +1,138 @@
+.login {
+  height: calc(98vh - 2.3125rem);
+  position: relative;
+
+  text-align: center;
+}
+
+section.image {
+  display: none;
+}
+
+.login h3 {
+  font: 700 2.5rem "Poppins", sans-serif;
+  color: var(--black-default);
+  margin-bottom: 5rem;
+}
+
+.form-login {
+  width: fit-content;
+  height: fit-content;
+
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.form-login div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+
+  margin: 1rem 0 1rem 0;
+}
+
+.form .dados span {
+  color: var(--black-smoth);
+  font-size: 1.125rem;
+}
+
+.form .recovery-pass {
+  display: flex;
+  justify-content: flex-end;
+
+  margin: 1rem 0 0 0;
+  font: 400 0.875rem "Poppins", sans-serif;
+  color: var(--black-smoth);
+}
+
+.form .line {
+  display: block;
+  width: 100%;
+  margin-top: -1rem;
+  border-radius: 0.9375rem;
+  border-top: 0.125rem solid var(--black-smoth);
+}
+
+.form input {
+  width: 250px;
+  font: 500 1.1rem "Poppins", sans-serif;
+  border: none;
+  border-radius: none;
+  outline: none;
+  background-color: var(--back-color);
+}
+
+.login section div span {
+  font-size: 1.5rem;
+}
+
+.form button {
+  margin-top: 3.5rem;
+  width: auto;
+  height: auto;
+
+  border: none;
+  background-color: var(--back-color);
+}
+
+.form button input {
+  font: 500 1.125rem "Poppins", sans-serif;
+  color: var(--back-color);
+
+  padding: 0.625rem;
+
+  background-color: var(--black-default);
+  border-radius: 50px;
+
+  cursor: pointer;
+}
+
+@media (min-width: 1200px) {
+  .login {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+  }
+
+  section.image {
+    display: block;
+    width: 85%;
+  }
+
+  img {
+    width: 65%;
+    height: auto;
+  }
+
+  .content {
+    position: relative;
+  }
+
+  .login h3 {
+    font: 700 3rem "Poppins", sans-serif;
+  }
+
+  .form .dados span {
+    font-size: 1.4rem;
+  }
+
+  .form .recovery-pass {
+    font: 400 1rem "Poppins", sans-serif;
+  }
+
+  .form input {
+    width: 300px;
+    font: 500 1.3rem "Poppins", sans-serif;
+  }
+
+  .form button input {
+    font: 500 1.4rem "Poppins", sans-serif;
+  }
+}

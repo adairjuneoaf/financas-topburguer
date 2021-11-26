@@ -4,14 +4,39 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Top Burguer Financas</title>
+    <title>Top Burguer</title>
+
+    <link
+      rel="shortcut icon"
+      href="/assets/images/logo_topburguer.svg"
+      type="image/x-icon"
+      sizes="128x128"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
 
     <link rel="stylesheet" href="/styles/index.css" />
+    <link rel="stylesheet" href="/styles/login.css" />
+    <link rel="stylesheet" href="/styles/alert.css" />
+    <link rel="stylesheet" href="/styles/footer.css" />
+    <link rel="stylesheet" href="/assets/fonts/style.css" />
   </head>
   <body>
-    <header>Olá</header>
-    <%- include('../models/login'); -%>
-    <footer>Até logo...</footer>
+    <main><%- include('../models/login'); -%></main>
+    <footer>
+      <p>
+        &copy 2022
+        <a href="https://www.prismasystems.com.br" target="_blank"
+          >prisma.systems</a
+        >
+        | Todos os direitos reservados
+      </p>
+    </footer>
     <script src="/scripts/main.js"></script>
   </body>
 </html>

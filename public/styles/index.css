@@ -1,16 +1,45 @@
+:root {
+  --back-color: #fff5e6;
+  --black-default: #262424;
+  --black-smoth: rgba(38, 36, 36, 0.5);
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-root {
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  scroll-behavior: smooth;
+  position: relative;
+  margin: 2% 2%;
+  overflow: hidden;
+
+  background: var(--back-color);
+
+  font: 400 1rem "Poppins", sans-serif;
 }
 
 a {
   text-decoration: none;
+}
+
+footer {
+  margin: auto;
+  position: fixed;
+  bottom: 1rem;
+  left: 2%;
+  right: 2%;
+
+  text-align: center;
+}
+
+footer p,
+footer a {
+  font: 400 0.875rem "Poppins", sans-serif;
+  color: var(--black-smoth);
 }
