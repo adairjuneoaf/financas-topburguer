@@ -14,14 +14,26 @@
     />
 
     <link rel="stylesheet" href="/styles/finances.css" />
+    <link rel="stylesheet" href="/assets/fonts/style.css" />
   </head>
   <body>
-    <header>Olá</header>
+    <section class="degrade"></section>
+    <header><%- include('../models/header'); -%></header>
     <main>
       <%- include('../models/cashBalance'); -%> <%-
+      include('../models/newTransaction'); -%> <%-
       include('../models/tableReleases'); -%>
     </main>
-    <footer>Até logo...</footer>
+    <footer>
+      <p>
+        &copy 2022
+        <a href="https://www.prismasystems.com.br" target="_blank"
+          >prisma.systems</a
+        >
+        | Todos os direitos reservados
+      </p>
+    </footer>
+
     <script src="/scripts/main.js"></script>
   </body>
 </html>
