@@ -1,5 +1,5 @@
 const express = require('express')
-routes = express.Router()
+const routes = express.Router()
 
 routes.get('/finances', (req, res) => {
     res.render('finances')
