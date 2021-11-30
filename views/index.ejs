@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="/assets/fonts/style.css" />
   </head>
   <body>
+    <% if(messages.error) { %> <%= messages.error %> <% } %>
     <main><%- include('../models/login'); -%></main>
     <footer>
       <p>
