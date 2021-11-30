@@ -1,16 +1,9 @@
 const express = require('express')
 const routes = express.Router()
+
 const passport = require('passport')
-
-
-routes.get('/', (req, res) => {
-    res.render('index')
-})
-
-routes.post('/', passport.authenticate('local', {
-    successRedirect: '/finances',
-    failureRedirect: '/',
-    failureFlash: true
-}))
+const localStrategy = require('passport-local').Strategy
+const mongoose = require('mongoose')
+const bcrypt = require('bcrypt')
 
 module.exports = routes

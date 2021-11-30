@@ -1,14 +1,15 @@
 const express = require('express')
 const routes = express.Router()
-const bcrypt = require('bcrypt')
+//const bcrypt = require('bcrypt')
 
-/*
-const users = []
 
-routes.get('/register', (req, res) => {
+//const users = []
+
+routes.get('/', (req, res) => {
     res.render('register')
 })
 
+/*
 routes.post('/register', async (req, res) => {
     try {
         const passwordEncoded = await bcrypt.hash(req.body.password, 10)
@@ -24,7 +25,6 @@ routes.post('/register', async (req, res) => {
     }
     console.log(users)
 })
+*/
 
 module.exports = routes
-
-*/
