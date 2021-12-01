@@ -138,6 +138,7 @@ app.get('/recovery', function (req, res) {
     res.render('index', { errors })
 });
 
+/*
 app.get('/setup', async (req, res) => {
     const exists = await User.exists({ username: "joseadair" });
 
@@ -164,6 +165,7 @@ app.get('/setup', async (req, res) => {
         });
     });
 });
+*/
 
 //app.use('/', fileRouteIndex)
 app.use('/register', loggedOn, fileRouteRegister)
