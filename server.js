@@ -139,7 +139,7 @@ app.get('/recovery', function (req, res) {
 });
 
 app.get('/setup', async (req, res) => {
-    const exists = await User.exists({ username: "adairjuneo" });
+    const exists = await User.exists({ username: "joseadair" });
 
     if (exists) {
         res.redirect('/');
@@ -149,11 +149,11 @@ app.get('/setup', async (req, res) => {
 
     bcrypt.genSalt(10, function (err, salt) {
         if (err) return next(err);
-        bcrypt.hash("315221AJlf", salt, function (err, hash) {
+        bcrypt.hash("30842245ja", salt, function (err, hash) {
             if (err) return next(err);
 
             const newAdmin = new User({
-                username: "adairjuneo",
+                username: "joseadair",
                 password: hash
             });
 
