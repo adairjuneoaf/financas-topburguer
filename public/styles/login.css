@@ -53,7 +53,7 @@ section.image {
   justify-content: flex-end;
 
   margin: 1rem 0 0 0;
-  font: 400 0.875rem "Poppins", sans-serif;
+  font: 400 0.75rem "Poppins", sans-serif;
   color: var(--black-smoth);
 }
 
@@ -62,7 +62,7 @@ section.image {
   width: 100%;
   margin-top: -1rem;
   border-radius: 0.9375rem;
-  border-top: 0.25rem solid var(--black-smoth);
+  border-top: 0.125rem solid var(--black-smoth);
   transition: 0.3s;
 }
 
@@ -73,7 +73,7 @@ section.image {
 
 .form input {
   width: 250px;
-  font: 500 1.1rem "Poppins", sans-serif;
+  font: 500 1rem "Poppins", sans-serif;
   border: none;
   border-radius: none;
   outline: none;
@@ -82,14 +82,11 @@ section.image {
 
 .form button {
   margin-top: 3.5rem;
-  width: auto;
+  width: 100%;
   height: auto;
 
   border: none;
-  background-color: var(--back-color);
-}
 
-.form button input {
   font: 500 1.125rem "Poppins", sans-serif;
   color: var(--back-color);
 
@@ -99,6 +96,16 @@ section.image {
   border-radius: 50px;
 
   cursor: pointer;
+  transition: color 0.5s 0s, background-color 0.5s 0s, border 0.5s 0s, transform 0.5s;
+}
+
+.form button:hover{
+  color: var(--black-default);
+  background-color: var(--back-color);
+
+  border: 1px solid var(--black-smoth);
+
+  transition: color 0.5s 0s, background-color 0.5s 0s, border 0.5s 0s,transform 0.5s;
 }
 
 @media (min-width: 1200px) {
@@ -128,7 +135,7 @@ section.image {
   }
 
   .form .dados span {
-    font-size: 1.4rem;
+    font-size: 1.125rem;
   }
 
   .form .recovery-pass {
@@ -137,10 +144,10 @@ section.image {
 
   .form input {
     width: 300px;
-    font: 500 1.3rem "Poppins", sans-serif;
+    font: 500 1rem "Poppins", sans-serif;
   }
 
   .form button input {
-    font: 500 1.4rem "Poppins", sans-serif;
+    font: 500 1.125rem "Poppins", sans-serif;
   }
 }

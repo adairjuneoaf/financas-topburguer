@@ -1,0 +1,42 @@
+.message-alert {
+  position: absolute;
+  width: fit-content;
+  height: 50px;
+
+  right: 0%;
+  top: 0%;
+
+  background-color: var(--back-color);
+  box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.2);
+
+  border-radius: 0.9375rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: left;
+
+  padding: 0.75rem;
+
+  transition: visibility 0s linear 0s, opacity 3s 0s, transform 5s;
+}
+
+.message-alert p {
+  font: 400 0.75rem "Poppins", sans-serif;
+  color: var(--black-default);
+  margin-left: 0.75rem;
+}
+
+.message-alert span {
+  font-size: 1.5rem;
+}
+
+@media (min-width: 1200px) {
+  .message-alert p {
+    font: 400 0.875rem "Poppins", sans-serif;
+  }
+  
+  .message-alert span {
+    font-size: 1.7rem;
+  }
+}
+

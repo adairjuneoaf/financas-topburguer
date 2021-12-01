@@ -1,4 +1,4 @@
-if(process.env.NODE_ENV !== 'production'){
+if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config()
 }
 
@@ -9,7 +9,7 @@ const localStrategy = require('passport-local').Strategy
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
 const session = require('express-session')
-const flash = require('express-flash')
+const flash = require('connect-flash')
 //const bodyParser = require('body-parser')
 
 /*
@@ -29,17 +29,17 @@ const fileRouteRegister = require('./routes/register')
 const db = mongoose.connection
 db.on('error', error => console.error(error))
 db.once('open', () => console.log('Conectado ao banco de dados'))
-mongoose.connect(process.env.DATABASE_URL,{
+mongoose.connect(process.env.DATABASE_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
 
 const userSchema = new mongoose.Schema({
-    username:{
+    username: {
         type: String,
         required: true
     },
-    password:{
+    password: {
         type: String,
         required: true
     }
@@ -60,7 +60,7 @@ app.use(session({
     saveUninitialized: false
 }))
 
-app.use(express.urlencoded({ extended: false}))
+app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
 app.use(passport.initialize())
@@ -78,14 +78,16 @@ passport.deserializeUser(function (id, done) {
     })
 })
 
-passport.use(new localStrategy(function (username, password, done) {
-    User.findOne({username: username}, function (err, user) {
-        if(err) return done(err)
-        if(!user) return done(null, false, {message: 'Username está incorreto.' })
+passport.use(new localStrategy({
+    passReqToCallback: true,
+}, function (req, username, password, done) {
+    User.findOne({ username: username }, function (err, user) {
+        if (err) return done(err)
+        if (!user) return done(null, false, req.flash('error', 'Não encontrei esse nome de usuário cadastrado.'))
 
-        bcrypt.compare(password, user.password, function (err, res){
-            if(err) return done(err)
-            if(res === false) return done(null, false, {message: 'Senha está incorreta.' })
+        bcrypt.compare(password, user.password, function (err, res) {
+            if (err) return done(err)
+            if (res === false) return done(null, false, req.flash('error', 'Opps, senha incorreta!'))
 
             return done(null, user)
         })
@@ -93,24 +95,26 @@ passport.use(new localStrategy(function (username, password, done) {
 }))
 
 function loggedOn(req, res, next) {
-    if(req.isAuthenticated())
-    return next();
+    if (req.isAuthenticated())
+        return next();
     res.redirect('/')
 }
 
 function loggedOff(req, res, next) {
-    if(!req.isAuthenticated())
-    return next();
+    if (!req.isAuthenticated())
+        return next();
     res.redirect('/')
 }
 
 app.get('/', (req, res) => {
-    res.render('index')
+    const errors = req.flash().error || []
+    res.render('index', { errors })
 })
 
 app.post('/', passport.authenticate('local', {
-	successRedirect: '/finances',
-	failureRedirect: '/',
+    failureFlash: true,
+    successRedirect: '/finances',
+    failureRedirect: '/',
 }))
 
 app.get('/finances', loggedOn, (req, res) => {
@@ -122,35 +126,49 @@ app.get('/logout', (req, res) => {
     res.redirect('/')
 })
 
-/*app.get('/setup', async (req, res) => {
-	const exists = await User.exists({ username: "admin" });
+/*app.get('/recovery', (req, res) => {
+    res.send('Entre em contato com o adminsitrador do sistema para redinir sua senha.')
+    res.setTimeout(5000, () => {
+        res.redirect('/')
+    })
+})*/
 
-	if (exists) {
-		res.redirect('/');
-        console.log("Usuário com e-mail já cadastrado")
-		return;
-	};
+app.get('/recovery', function (req, res) {
+    const errors = req.flash().error || ['Entre em contato com o administrador do sistema para redefinir sua senha.']
+    res.render('index', { errors })
+});
 
-	bcrypt.genSalt(10, function (err, salt) {
-		if (err) return next(err);
-		bcrypt.hash("pass", salt, function (err, hash) {
-			if (err) return next(err);
-			
-			const newAdmin = new User({
-				username: "admin",
-				password: hash
-			});
+/*
+app.get('/setup', async (req, res) => {
+    const exists = await User.exists({ username: "joseadair" });
 
-			newAdmin.save();
+    if (exists) {
+        res.redirect('/');
+        console.log("Username já cadastrado!")
+        return;
+    };
+
+    bcrypt.genSalt(10, function (err, salt) {
+        if (err) return next(err);
+        bcrypt.hash("30842245ja", salt, function (err, hash) {
+            if (err) return next(err);
+        	
+            const newAdmin = new User({
+                username: "joseadair",
+                password: hash
+            });
+
+            newAdmin.save();
             console.log('Usuário criado.')
 
-			res.redirect('/');
-		});
-	});
-});*/
+            res.redirect('/');
+        });
+    });
+});
+*/
 
 //app.use('/', fileRouteIndex)
 app.use('/register', loggedOn, fileRouteRegister)
 //app.use('/finances', isLoggedIn, fileRouteFinances)
 
-app.listen(process.env.PORT || 3000, () => {console.log('Servidor iniciado na porta 3000')})
+app.listen(process.env.PORT || 3000, () => { console.log('Servidor iniciado na porta 3000') })
