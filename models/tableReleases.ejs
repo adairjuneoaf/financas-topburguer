@@ -1,0 +1,16 @@
+<form action="/finances" method="GET">
+  <label for="username">Description</label>
+  <input
+    type="text"
+    name="username"
+    id="username"
+    value="<%= searchTransaction.username %>"
+  />
+  <button type="submit">Pesquisar</button>
+</form>
+<br />
+<% usuarios.forEach(users => { %>
+<p><%= users.id %></p>
+<p><%= users.username %></p>
+<p><%= users.password %></p>
+<% }) %>

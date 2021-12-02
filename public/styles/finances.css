@@ -44,7 +44,7 @@ a {
   position: absolute;
   z-index: -100;
 
-  margin: -2%;
+  margin: -2.1%;
 }
 
 header {
@@ -63,7 +63,7 @@ header {
 }
 
 .cabecalho .perfil {
-  max-width: 8rem;
+  /*max-width: 8rem;
   display: flex;
   flex-wrap: wrap-reverse;
 
@@ -72,7 +72,28 @@ header {
 
   text-align: center;
 
-  gap: 0.5rem 1rem;
+  gap: 0.5rem 1rem;*/
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 12px;
+  grid-template-areas:
+    "img-perfil button-logout"
+    "name name";
+  justify-items: center;
+  align-items: center;
+}
+
+.name {
+  grid-area: 2 / 1 / 3 / 3;
+}
+
+.img-perfil {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.button-logout {
+  grid-area: 1 / 2 / 2 / 3;
 }
 
 .cabecalho .perfil p {
