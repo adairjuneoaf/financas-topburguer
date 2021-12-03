@@ -1,0 +1,251 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --back-color: #fff5e6;
+  --white-default: #ffffff;
+  --black-default: #262424;
+  --black-smoth: rgba(38, 36, 36, 0.5);
+  --red-default: #e74c3c;
+  --green-default: #27ae60;
+  --yellow-default: #f39c12;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  margin: 2%;
+  width: auto;
+  height: calc(100vh - 4rem);
+  overflow: hidden;
+
+  background: var(--white-default);
+
+  font: 400 1rem "Poppins", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.nova-transacao {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 1rem;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu a {
+  width: fit-content;
+  padding: 1rem 3rem;
+  font: 500 1rem "Poppins", sans-serif;
+  color: var(--black-default);
+
+  display: flex;
+  align-items: center;
+
+  background-color: var(--white-default);
+
+  border-radius: 0.9375rem;
+
+  border: 2px solid var(--back-color);
+}
+
+.menu a span {
+  font-size: 1.5rem;
+  padding: 0 0.375rem;
+}
+
+.nova-transacao .form-transacao h2 {
+  font: 500 1.8rem "Poppins", sans-serif;
+  color: var(--black-default);
+}
+
+.nova-transacao .form-transacao p {
+  font: 500 0.75rem "Poppins", sans-serif;
+  color: var(--black-smoth);
+}
+
+.nova-transacao .form-transacao {
+  padding: 4rem 3rem;
+  width: 65%;
+  height: auto;
+
+  background-color: var(--white-default);
+
+  border-radius: 0.9375rem;
+
+  border: 2px solid var(--back-color);
+}
+
+.form-new-transaction {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.9fr 0.9fr 1.2fr;
+  grid-auto-columns: 1fr;
+  gap: 16px 16px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "descricao descricao"
+    "valor valor"
+    "data tipo-transacao";
+}
+
+.form-new-transaction {
+  margin-top: 2rem;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.8fr 0.8fr 0.1fr 0.8fr 0.8fr 0.1fr 0.8fr 0.1fr 0.8fr 3fr;
+  grid-auto-columns: 1fr;
+  gap: 0.5rem 0.5rem;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "label-descricao label-descricao"
+    "descricao descricao"
+    "divisor divisor"
+    "label-valor label-valor"
+    "valor valor"
+    "divisor2 divisor2"
+    "label-data label-tipo-transacao"
+    "data tipo-transacao"
+    "divisor3  "
+    "salvar salvar";
+  justify-items: stretch;
+  align-items: center;
+}
+
+.label-descricao {
+  grid-area: label-descricao;
+}
+
+.descricao {
+  grid-area: descricao;
+}
+
+.divisor {
+  grid-area: divisor;
+}
+
+.label-valor {
+  grid-area: label-valor;
+}
+
+.valor {
+  grid-area: valor;
+}
+
+.divisor2 {
+  grid-area: divisor2;
+}
+
+.label-data {
+  grid-area: label-data;
+}
+
+.label-tipo-transacao {
+  grid-area: label-tipo-transacao;
+}
+
+.data {
+  grid-area: data;
+}
+
+.divisor3 {
+  grid-area: divisor3;
+}
+
+.tipo-transacao {
+  grid-area: tipo-transacao;
+}
+
+.salvar {
+  grid-area: salvar;
+}
+
+.form-new-transaction input,
+.form-new-transaction select {
+  font: 400 1rem "Poppins", sans-serif;
+  color: var(--black-default);
+  margin-top: -0.375rem;
+
+  width: 100%;
+  height: 1.5rem;
+
+  border: none;
+  outline: none;
+
+  border-radius: 0.375rem;
+}
+
+.form-new-transaction .divisor,
+.form-new-transaction .divisor2,
+.form-new-transaction .divisor3 {
+  margin: -0.75rem 0rem 0rem 0rem;
+
+  width: 100%;
+
+  border-style: solid;
+  border-width: 2px 2px 2px 2px;
+  border-color: var(--black-smoth);
+  border-radius: 4px;
+}
+
+.form-new-transaction .divisor3 {
+  margin: -1.375rem 0rem 0rem 0rem;
+}
+
+.form-new-transaction label {
+  font: 400 0.75rem "Poppins", sans-serif;
+  color: var(--black-smoth);
+}
+
+.form-new-transaction .salvar {
+  width: auto;
+  height: auto;
+
+  margin-top: 1rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-new-transaction .salvar .botao-nova-transacao {
+  padding: 1rem 10rem;
+  font: 500 1.375rem "Poppins", sans-serif;
+
+  color: var(--white-default);
+  background-color: var(--black-default);
+
+  cursor: pointer;
+
+  border-radius: 0.9375rem;
+  border: none;
+  outline: none;
+  transition: color 0.5s 0s, background-color 0.5s 0s, border 0.5s 0s,
+    transform 0.5s;
+}
+
+.form-new-transaction .salvar .botao-nova-transacao:hover {
+  color: var(--black-default);
+  background-color: var(--white-default);
+  border: 1px solid var(--black-smoth);
+  transition: color 0.5s 0s, background-color 0.5s 0s, border 0.5s 0s,
+    transform 0.5s;
+}

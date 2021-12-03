@@ -31,3 +31,9 @@ lineInputPassword.forEach(lineFocusPassword => {
     })
 })
 
+const boxAlert = document.querySelector('.message-alert')
+
+setTimeout(function () {
+    boxAlert.style.visibility = 'hidden'
+ }, 3500)
+

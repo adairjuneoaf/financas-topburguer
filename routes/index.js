@@ -52,8 +52,8 @@ passport.use(new localStrategy({
 }))
 
 routes.get('/recovery', function (req, res) {
-    const errors = req.flash().error || ['Entre em contato com o administrador do sistema para redefinir sua senha.']
-    res.render('index', { errors })
+    req.flash('error', 'Entre em contato com o administrador do sistema para redefinir sua senha.')
+    res.redirect('/');
 });
 
 module.exports = routes

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lançamentos | Top Burguer</title>
+    <title>Novo Lançamento | Top Burguer</title>
 
     <link
       rel="shortcut icon"
@@ -21,16 +21,13 @@
     />
 
     <link rel="stylesheet" href="/styles/finances.css" />
+    <link rel="stylesheet" href="/styles/transaction.css" />
     <link rel="stylesheet" href="/assets/fonts/style.css" />
   </head>
   <body>
     <section class="degrade"></section>
     <header><%- include('../models/header'); -%></header>
-    <main>
-      <%- include('../models/cashBalance'); -%> <%-
-      include('../models/buttonTransaction'); -%> <%-
-      include('../models/tableReleases'); -%>
-    </main>
+    <main><%-include('../models/newTransaction'); -%></main>
     <footer>
       <p>
         &copy 2022

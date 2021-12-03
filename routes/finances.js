@@ -20,4 +20,9 @@ routes.get('/', async (req, res) => {
     }
 })
 
+routes.get('/transaction', async (req, res) => {
+    res.render('transaction', {name: req.user.name})
+
+})
+
 module.exports = routes

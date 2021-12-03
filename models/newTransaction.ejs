@@ -1,6 +1,64 @@
-<section class="adcionar-transacao">
-  <a href="#">
-    <span class="icon-transacao"></span>
-    <p>Nova Transação</p>
-  </a>
+<section class="menu">
+  <a href="/finances"
+    ><span class="icon-arrow_back"></span> Voltar aos lançamentos</a
+  >
+</section>
+<section class="nova-transacao">
+  <div class="form-transacao">
+    <h2>Novo lançamento</h2>
+    <p>
+      *Atenção: fique atento ao Tipo de Lançamento e para casas decimais no
+      campo valor utilize vírgula(,).
+    </p>
+    <form action="/finances/new-transaction" class="form-new-transaction">
+      <label for="descricao" class="label-descricao">Descrição</label>
+      <input
+        type="text"
+        name="descricao"
+        placeholder="Qual a descrição do lançamento?"
+        id="descricao"
+        class="descricao campos-nova-transacao"
+        required
+      />
+      <div class="divisor"></div>
+      <label for="valor" class="label-valor">Valor</label>
+      <input
+        type="number"
+        step="0.01"
+        name="valor"
+        placeholder="Qual o valor desse lançamento?"
+        id="valor"
+        class="valor campos-nova-transacao"
+        required
+      />
+      <div class="divisor2"></div>
+      <label for="data" class="label-data">Data do Lançamento</label>
+      <input
+        type="text"
+        name="data"
+        onfocus="(this.type='date')"
+        placeholder="DD/MM/AAAA"
+        id="data"
+        class="data campos-nova-transacao"
+        required
+      />
+      <div class="divisor3"></div>
+      <label for="tipo-transacao" class="label-tipo-transacao"
+        >Tipo de Lançamento</label
+      >
+      <select
+        id="tipo-transacao"
+        name="tipo-transacao"
+        id="tipo-transacao"
+        class="tipo-transacao campos-nova-transacao"
+        required
+      >
+        <option value="Entrada">Entrada</option>
+        <option value="Saída">Saída</option>
+      </select>
+      <div class="salvar">
+        <button href="#" class="botao-nova-transacao">SALVAR</button>
+      </div>
+    </form>
+  </div>
 </section>
